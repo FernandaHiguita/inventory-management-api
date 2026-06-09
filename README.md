@@ -1,94 +1,241 @@
-# LogiTech Solutions
+# 📦 Inventory Management REST API
 
-## Project Overview
+A RESTful API built with **Node.js**, **Express.js**, and **PostgreSQL** for managing inventory, suppliers, customers, products, and transactions. This project demonstrates relational database design, backend architecture, SQL operations, and API development using industry-standard practices.
 
-**LogiTech** is a backend with APIrest (customer, suppliers, products) 
+---
 
-The main purpose of this project is to demonstrate the manage of the language SQL and concepts such as APIRest, manage of crud, express.
+## 🚀 Project Overview
 
-This project does not include a real front, to probe the data in the API used thunderClient.
+This application provides a centralized system for managing inventory operations and commercial transactions. It enables the registration of products, suppliers, customers, and sales transactions while maintaining data integrity through a relational database model.
 
-## Technologies Used
+The project was developed to strengthen backend development skills, relational database management, and API design principles.
 
-- **Express** – Create and manage of routes  
-- **Postgres** – Manage of data   
-- **DotEnv** - Manage of variable  
+---
 
-## Project Architecture
+## 🏗️ Architecture
 
-The project follows a **modular architecture**, where each part of the application has a clear and specific responsibility.
-
-/config
-├── dbconfig → connection with database
-└── env.js → import to variable
-/controllers
-├── customers → Manage the data of customers 
-├── product → Manage the data of products 
-└── supplier → Manage the data of supliers 
-/routes 
-├── customers → Manage the routes of navigation
-├── product → Manage the routes of navigation
-└── supplier → Manage the routes of navigation
-/services
-├── customers → Manage the logic of negociation 
-├── product → Manage the logic of negociation 
-└── supplier → Manage the logic of negociation 
-
-
-This structure helps keep the codebase **organized**, **maintainable**, and **easy to understand**.
-
-## How use the endpoints 
-
-First use a program where you can test the routes, recommend the **ThunderClient** or **PostMan**
-
-the routes are 
- - get http://localhost:3001/products
- - get http://localhost:3001/customers
- - get http://localhost:3001/suppliers
-
- - post http://localhost:3001/products
- - post http://localhost:3001/customers
- - post http://localhost:3001/suppliers
-
- - put http://localhost:3001/products/:id
- - put http://localhost:3001/customers/:id
- - put http://localhost:3001/suppliers/:id
-
- - delete http://localhost:3001/products/:id
- - delete http://localhost:3001/customers/:id
- - delete http://localhost:3001/suppliers/:id
-
-
-
-
-### deployment and execution
-
-To start use and work in the REST API using, run the following commands:
-
-you must be clone the repository 
-
-```bash
-git clone https://github.com/FernandaHiguita/prueba_desempeno_basesDatos.git 
-```
-next install all dependences 
-
-```bash
-npm install 
+```text
+Client
+   │
+   ▼
+Express REST API
+   │
+   ├── Routes
+   ├── Controllers
+   ├── Services
+   │
+   ▼
+PostgreSQL Database
 ```
 
-Config the varibla in the .env 
+The application follows a layered architecture to improve maintainability, scalability, and code organization.
 
-DB_HOST= 
-DB_PORT=
-DB_NAME= 
-DB_USER= 
-DB_PWD= 
-APP_PORT= 
+---
 
-Add you credentials about your database. 
+## ✨ Features
 
-In the terminal execute this comand and run the server 
+* Product management
+* Customer management
+* Supplier management
+* Transaction registration
+* Transaction details tracking
+* PostgreSQL relational database integration
+* RESTful API endpoints
+* Modular backend architecture
+* SQL-based data persistence
+
+---
+
+## 🗄️ Database Design
+
+The database is designed using relational modeling principles and normalization techniques.
+
+### Main Entities
+
+* Customers
+* Suppliers
+* Products
+* Transactions
+* Transaction Details
+
+### Relationships
+
+* One customer can have multiple transactions
+* One supplier can provide multiple products
+* One transaction can contain multiple products
+* Transaction details connect products and transactions
+
+---
+
+## 📊 Entity Relationship Diagram
+
+Add your database diagram here:
+
+```markdown
+![Database Schema](./assets/img/erd-diagram.png)
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* PostgreSQL
+
+### Development Tools
+
+* Git
+* GitHub
+* Visual Studio Code
+
+---
+
+## 📂 Project Structure
+
+```text
+inventory-management-api
+│
+├── src
+│   ├── config
+│   ├── controllers
+│   ├── routes
+│   ├── services
+│   └── app.js
+│
+├── database
+│   └── schema.sql
+│
+├── README.md
+├── package.json
+└── .env
+```
+
+---
+
+## ⚙️ Installation
+
+### Clone the repository
 
 ```bash
-npm run dev 
+git clone https://github.com/yourusername/inventory-management-api.git
 ```
+
+### Navigate to the project folder
+
+```bash
+cd inventory-management-api
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Configure environment variables
+
+Create a `.env` file:
+
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=inventory_db
+DB_USER=postgres
+DB_PASSWORD=your_password
+```
+
+### Run database schema
+
+Execute the SQL script included in the project:
+
+```sql
+database/schema.sql
+```
+
+### Start the application
+
+```bash
+npm run dev
+```
+
+---
+
+## 🔗 API Endpoints
+
+### Customers
+
+```http
+GET /customers
+POST /customers
+PUT /customers/:id
+DELETE /customers/:id
+```
+
+### Products
+
+```http
+GET /products
+POST /products
+PUT /products/:id
+DELETE /products/:id
+```
+
+### Suppliers
+
+```http
+GET /suppliers
+POST /suppliers
+PUT /suppliers/:id
+DELETE /suppliers/:id
+```
+
+### Transactions
+
+```http
+GET /transactions
+POST /transactions
+```
+
+---
+
+## 📚 What I Learned
+
+Through this project I strengthened my knowledge in:
+
+* Relational Database Design
+* SQL Query Development
+* PostgreSQL Administration
+* REST API Development
+* Backend Architecture
+* CRUD Operations
+* Data Modeling
+* Entity Relationships
+* Git & GitHub Workflow
+
+---
+
+## 🎯 Future Improvements
+
+* Authentication and Authorization
+* Input Validation Middleware
+* API Documentation with Swagger
+* Docker Containerization
+* Automated Testing
+* Cloud Deployment
+* Logging and Monitoring
+
+---
+
+## 👩‍💻 Author
+
+**Fernanda Higuita**
+
+Aspiring Data Analyst & Data Engineer
+
+Focused on Data Analytics, ETL Pipelines, Backend Development, and Cloud Data Platforms.
